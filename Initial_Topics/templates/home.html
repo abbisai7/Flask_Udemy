@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{%block title %} HomePage{% endblock %}
+
+
+{%block content %}   
+{{super()}} 
+    <h1>Hello {{name}}, welcome!!</h1>
+
+    <h1>DB Content</h1>
+    {% for i in results %}
+    <h2>Id:{{i["id"]}}</h2>
+    <h2>Name:{{i["name"]}}</h2>
+    <h2>Place:{{i["location"]}}</h2>
+    {% endfor %}
+
+    {% if display %}
+    <h1>This is being displayed</h1>
+    {% else %}
+    <h1>This is not being displayed</h1>
+    {% endif %}
+
+    {% for x in myList %}
+    <h2>{{x}}</h2>
+    {% endfor %}
+
+    {% for x in myDict %}
+    <h2>{{myDict[x]}}</h2>
+    {% endfor %}
+
+    {% include "include.html" %}
+<img src="{{url_for('static',filename='images/img.png')}}">
+
+{% endblock %}
